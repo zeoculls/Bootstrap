@@ -6,8 +6,8 @@ var path = require('path')
 var app = express();
 //password-hash
 
-app.engine('php', require('ejs').renderFile);
-app.set('view engine', 'php');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname + '/_')));
 
 
@@ -48,37 +48,70 @@ sequelize
   })
 
 
-var User = sequelize.define('User', {
-  username: Sequelize.STRING,
+var Usuario = sequelize.define('Usuario', {
+  id_usuario: { 
+      type: Sequelize.UUID, 
+      defaultValue: Sequelize.UUIDV4, 
+      primaryKey: true
+    },
+  nickname: Sequelize.STRING,
+  nombre: Sequelize.STRING,
+  apellidos: Sequelize.STRING,
+  direccion: Sequelize.STRING,
+  codigoPostal: Sequelize.INTEGER,
+  fechaNacimiento: Sequelize.STRING,
+  fotoAvatar: Sequelize.STRING,
+  email: Sequelize.STRING,
+  telefono: Sequelize.INTEGER,
   password: Sequelize.STRING
-}, {
-  	updatedAt: 'last_update',
-  	createdAt: 'date_of_creation'
+  }, 
+  {
+  	fechaModificacion: 'last_update',
+  	fechaCreacion: 'date_of_creation'
 })
 
-var Recado = sequelize.define('Recado', {
-  descripcion: Sequelize.STRING,
+var Servicio = sequelize.define('Servicio', {
+  id_Servicio: { 
+      type: Sequelize.UUID, 
+      defaultValue: Sequelize.UUIDV4, 
+      primaryKey: true
+    },
+  nickname: Sequelize.STRING,
+  titulo: Sequelize.STRING,
+  descripcion: Sequelize.TEXT,
+  linkfoto: Sequelize.STRING,
+  precio: Sequelize.INTEGER,
+  grupo: Sequelize.STRING,
+  ofertaDemanda: Sequelize.BOOLEAN,
+  codigoPostal: Sequelize.INTEGER,
   usuario: Sequelize.STRING,
-  posicion: Sequelize.STRING
-}, {
-  	updatedAt: 'last_update',
-  	createdAt: 'date_of_creation'
+  posicion: Sequelize.STRING,
+  fechaFin: Sequelize.DATE
+  },
+ {
+  	fechaModificacion: 'last_update',
+  	fechaCreacion: 'date_of_creation'
 })
 
-// var user = User.build({
-//   username: 'john-doe',
-//   password: 'i-am-so-great'
-// })
+ var Usuario = Usuario.build({
+  password: 'i-am-so-great',
+  nickname: 'Zeoculls',
+  nombre: 'Javier',
+  apellidos: 'Portabales',
+  direccion: 'Querol',
+  codigoPostal: 28033
+
+ })
  
-// user
-//   .save()
-//   .complete(function(err) {
-//     if (!!err) {
-//       console.log('ERROR INSERTANDO Usuario:', err)
-//     } else {
-//       console.log('Insertado nuevo usuario')
-//     }
-//   })
+ Usuario
+   .save()
+   .complete(function(err) {
+     if (!!err) {
+       console.log('ERROR INSERTANDO Usuario:', err)
+     } else {
+       console.log('Insertado nuevo usuario')
+     }
+   })
 
 // var recado = Recado.build({
 //   descripcion: 'john-doe',

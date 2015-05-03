@@ -26,36 +26,52 @@
       </ul>
     </div>  
   </header>
-  <!-- <script src="./js/bootstrap.js"></script> -->
-  
-  <script>
-  //Funcion javaScript simple para activar botones de menu
-  var menuLinks;
-  window.onload=function () {
-    //Recuperamos todos los links del menu
-    menuLinks = document.getElementById("menu").getElementsByTagName("li");
-    //Activamos el primero en la carga inicial
-    displayPanel(menuLinks[0]);
-    //Activo la funcion en todos los botones del menu
-    for (var i = 0; i < menuLinks.length; i++) {
-        menuLinks[i].onclick = function () {
-          displayPanel(this);
-          return false;
-        }
-      }
-    }
-  
 
-  function displayPanel(botonParaActivar) {
-    for (var i = 0 ; i < menuLinks.length; i++) {
-        if (menuLinks[i] == botonParaActivar) {
-          menuLinks[i].classList.add("active");
-        } else {
-          menuLinks[i].classList.remove("active");
-        }
-    }
-  }
-  </script>
+  <article>
+  <!-- Primera linea de ejemplo de Serivicios -->
+  <div class="row">
+
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="../images/copied/no_thumb.jpg" alt="...">
+        <div class="caption">
+          <h3>Servicio disponible</h3>
+          <p>Primer servicio disponible en la web, desarrollador web a domicilio en Madrid</p>
+          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+      </div>
+    </div>
+  
+      <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="../images/copied/no_thumb.jpg" alt="...">
+        <div class="caption">
+          <h3>Servicio 2 disponible</h3>
+          <p>Segundo servicio disponible en la web, Profesor de clases particualres</p>
+          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+      </div>
+    </div>
+
+          <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="../images/copied/no_thumb.jpg" alt="...">
+        <div class="caption">
+          <h3>Servicio 3 disponible</h3>
+          <p>Segundo servicio disponible en la web, fontanero a domicilio en Madrdi</p>
+          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  </article>
+
+
+<script src="./js/bootstrap.js"></script>
+<!-- Realizo un funcion JS de prueba activa el boton pulsado del menu superior -->
+<script src="./js/prueba.js"></script> 
 
 
   </body>
