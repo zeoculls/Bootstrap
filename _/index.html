@@ -1,18 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
-    <link href="_/css/bootstrap.css" rel="stylesheet">
-
+    <meta name="description" content="Pagina principal Servicilia - Servicios rapidos y sin intermediarios.">
+    <!-- Fuente de Google Bree -->
+    <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+    <title>Servicialia</title>
+    <link href="./css/bootstrap.css" rel="stylesheet">
   </head>
-  <body>
-    <h1>Hello, world!</h1>
 
 
-    <script src="_js/bootstrap.js"></script>
+  <body id="Home">
+  <header role="banner">
+    <div class="col-lg-1">
+      <a href="index.html"><img src="../images/copied/Ubuntu_logo_blue.png" width="100" height="100" alt="Logo for Servicialia"></a>
+    </div> <!-- column -->
+
+    <div id="menu">
+      <h1>Busca lo que necesitas, cerca, rápido y sin intermediarios.</h1>
+      <ul class="nav nav-pills nav-justified">
+        <li id="botom1"> <a href="index.html">Home</a></li>
+        <li id="botom2"> <a href="#">Servicios cerca de ti</a></li>
+        <li id="botom3"> <a href="#">¿Que necesitas?</a></li>
+      </ul>
+    </div>  
+  </header>
+  <!-- <script src="./js/bootstrap.js"></script> -->
+  
+  <script>
+  //Funcion javaScript simple para activar botones de menu
+  var menuLinks;
+  window.onload=function () {
+    //Recuperamos todos los links del menu
+    menuLinks = document.getElementById("menu").getElementsByTagName("li");
+    //Activamos el primero en la carga inicial
+    displayPanel(menuLinks[0]);
+    //Activo la funcion en todos los botones del menu
+    for (var i = 0; i < menuLinks.length; i++) {
+        menuLinks[i].onclick = function () {
+          displayPanel(this);
+          return false;
+        }
+      }
+    }
+  
+
+  function displayPanel(botonParaActivar) {
+    for (var i = 0 ; i < menuLinks.length; i++) {
+        if (menuLinks[i] == botonParaActivar) {
+          menuLinks[i].classList.add("active");
+        } else {
+          menuLinks[i].classList.remove("active");
+        }
+    }
+  }
+  </script>
+
+
   </body>
 </html>
